@@ -1,0 +1,54 @@
+#disable hydra outputs
+defaults:  
+  - _self_  
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging: disabled  
+  
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .
+
+mlflow:
+  experiment: train_anomaly_gym
+  tracking_uri: .mlruns
+  tags:
+    env: ${env.env_id}
+    agent: ${agent.name}
+    tag: testing
+
+# default values
+env:
+  env_kwargs:
+    render_mode: rgb_array
+
+
+agent:
+  module: stable_baselines3
+  kwargs:
+    policy: MlpPolicy
+
+ckpts:
+  save_freq: 
+  save_best: True
+  save_final: True
+  # path: ${mlflow.tracking_uri}/../tmp
+
+train:
+  device: cuda
+  n_steps: 1_000_000
+
+eval: 
+  freq:  ${eval:${train.n_steps}/20}
+  n_episodes: 30
+
+record_eval:
+  freq: ${eval:${train.n_steps}/5}
+  n_episodes: 3
+  video: True
+  plots: True
+
+
+train_envs: 5
+eval_envs: 1
+seeds: [42, 43, 44]

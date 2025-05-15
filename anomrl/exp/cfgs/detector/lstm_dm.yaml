@@ -1,0 +1,16 @@
+# @package _global_
+detector:
+  _target_: anomrl.algos.detectors.LSTMDMDetector
+  model_kwargs: 
+    lr: 0.0005
+
+data_module:
+  _target_: anomrl.data.datamodules.VectorObsDataModule
+  batch_size: 1
+
+model_tag: lstm_dm
+
+trainer:
+  max_epochs: 250
+  check_val_every_n_epoch: 10
+  save_best_checkpoint: false

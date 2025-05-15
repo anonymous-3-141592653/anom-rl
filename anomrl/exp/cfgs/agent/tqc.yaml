@@ -1,0 +1,4 @@
+name: TQC
+module: sb3_contrib
+kwargs:
+  policy: MlpPolicy

@@ -1,0 +1,13 @@
+# @package _global_
+detector:
+  _target_: anomrl.algos.detectors.KnnDetector
+  aggregation: none
+  model_kwargs: 
+    n_neighbors: 1
+
+data_module:
+  _target_: anomrl.data.datamodules.VectorObsDataModule
+  batch_size: 1
+
+model_tag: KNN_none
+register_model: false

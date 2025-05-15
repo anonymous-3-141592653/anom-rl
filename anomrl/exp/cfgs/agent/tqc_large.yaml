@@ -1,0 +1,17 @@
+name: TQC
+module: sb3_contrib
+kwargs:
+  policy: MlpPolicy
+  learning_rate_schedule: linear
+  learning_rate: 0.001
+  batch_size: 512
+  buffer_size: 1_000_000
+  gamma: 0.98
+  tau: 0.005
+  learning_starts: 1000
+  policy_kwargs: 
+    net_arch: 
+      - 512
+      - 512
+      - 512
+    n_critics: 2

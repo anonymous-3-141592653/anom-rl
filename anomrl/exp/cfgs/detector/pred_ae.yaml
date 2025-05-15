@@ -1,0 +1,22 @@
+# @package _global_
+detector:
+  _target_: anomrl.algos.detectors.PredAEDetector
+  # model_path: 
+  model_kwargs: 
+    # lr: 0.0005
+    lr: 0.0001
+    # lr: 0.001
+
+data_module:
+  _target_: anomrl.data.datamodules.ImgObsDataModule
+  batch_size: 1
+
+trainer:
+  max_epochs: 250
+  check_val_every_n_epoch: 5
+  early_stopping: false
+  progress_bar: true
+  save_best_checkpoint: true
+  extra_callbacks:
+    - _target_: anomrl.common.lit_utils.PlotPredictionCallback
+      plot_every_n_epoch: 25

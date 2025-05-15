@@ -1,0 +1,12 @@
+# @package _global_
+detector:
+  _target_: anomrl.algos.detectors.KnnResNetDetector
+  model_kwargs:
+  n_neighbors: 1
+
+data_module:
+  _target_: anomrl.data.datamodules.ImgObsDataModule
+  batch_size: 1
+
+mlflow:
+  register_model: false

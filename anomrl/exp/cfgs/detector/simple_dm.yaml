@@ -1,0 +1,15 @@
+# @package _global_
+detector:
+  _target_: anomrl.algos.detectors.SimpleDMDetector
+  model_kwargs: 
+
+data_module:
+  _target_: anomrl.data.datamodules.VectorObsDataModule
+  batch_size: 1
+
+model_tag: SimpleDM
+register_model: true
+
+trainer:
+  max_epochs: 250
+  check_val_every_n_epoch: 10

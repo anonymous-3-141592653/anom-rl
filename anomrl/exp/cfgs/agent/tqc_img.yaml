@@ -1,0 +1,11 @@
+# @package _global_
+agent:
+  name: TQC
+  module: sb3_contrib
+  kwargs:
+    policy: CnnPolicy
+
+env:
+  env_kwargs:
+    observation_type: image
+  frame_stack: 4 

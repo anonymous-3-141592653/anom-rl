@@ -1,0 +1,13 @@
+# @package _global_
+detector:
+  _target_: anomrl.algos.detectors.PredNetDetector
+  model_kwargs:
+
+data_module:
+  _target_: anomrl.data.datamodules.ImgObsDataModule
+  batch_size: 1
+
+model_tag: PredNet
+
+trainer:
+   max_epochs: 100

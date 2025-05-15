@@ -1,0 +1,11 @@
+# @package _global_
+detector:
+  _target_: anomrl.algos.detectors.IsoforestDetector
+  model_kwargs: 
+
+data_module:
+  _target_: anomrl.data.datamodules.VectorObsDataModule
+  batch_size: 1
+
+
+model_tag: iso_forest

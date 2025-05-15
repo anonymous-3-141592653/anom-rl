@@ -1,0 +1,25 @@
+hydra:
+  run:
+    dir: ${log_dir}
+
+run:
+  seed: 777
+  timestamp: ${now:%Y-%m-%dT%H:%M:%S.%f}
+
+register_model: true
+model_registry_dir: .model_registry/
+results_dir: .results/eval_results
+log_dir: .logs/hydra_logs/${mlflow.experiment_name}/${run.timestamp}
+
+tags:
+  model_tag: c1
+  detector_tag: foo
+  run_tag: bar
+  run_timestamp: ${run.timestamp}
+  env_id: ${data_module.env_id}
+
+trainer:
+
+mlflow:
+  experiment_name: eval_detector
+  tracking_uri: .mlruns

@@ -1,0 +1,11 @@
+# @package _global_
+detector:
+  _target_: anomrl.algos.detectors.OCSVMDetector
+  model_kwargs: 
+    gamma: auto
+
+data_module:
+  _target_: anomrl.data.datamodules.VectorObsDataModule
+  batch_size: 1
+
+model_tag: OCSVM
