@@ -103,7 +103,7 @@ wheels = [
 [[package]]
 name = "anomaly-gym"
 version = "0.1"
-source = { git = "https://github.com/anonymous-3-141592653/anomaly-gym#f2038d5d160e716262b07dd7006e57bf769a6209" }
+source = { git = "https://github.com/anonymous-3-141592653/anomaly-gym#b7e65bad99023db174b3232ffa1d8444ad6013cf" }
 dependencies = [
     { name = "gymnasium", marker = "(platform_machine == 'aarch64' and platform_system == 'Darwin') or (platform_machine == 'aarch64' and platform_system == 'Windows') or (platform_system != 'Darwin' and platform_system != 'Windows') or sys_platform != 'linux'" },
     { name = "hydra-core", marker = "(platform_machine == 'aarch64' and platform_system == 'Darwin') or (platform_machine == 'aarch64' and platform_system == 'Windows') or (platform_system != 'Darwin' and platform_system != 'Windows') or sys_platform != 'linux'" },
